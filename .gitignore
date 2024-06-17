@@ -8,3 +8,8 @@
 /TradesWebAPIDataAccess/obj
 /TradesWebAPISharedLibrary/obj
 /TradesWebAPIUnitTest/obj
+/TradesWebAPI/bin/Debug/net8.0
+/TradesWebAPIBusinessLogic/bin/Debug/net8.0
+/TradesWebAPIDataAccess/bin/Debug/net8.0
+/TradesWebAPISharedLibrary/bin/Debug/net8.0
+/TradesWebAPIUnitTest/bin/Debug/net8.0

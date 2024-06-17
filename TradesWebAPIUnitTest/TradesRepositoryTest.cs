@@ -1,4 +1,6 @@
-﻿using TradesWebAPIDataAccess;
+﻿using Microsoft.Extensions.Logging;
+using Moq;
+using TradesWebAPIDataAccess;
 using TradesWebAPISharedLibrary.Model;
 using Xunit;
 
@@ -18,9 +20,10 @@ namespace TradesWebAPIUnitTest
         public async Task CreateEntity_ValidEntity_CreatesEntity()
         {
             // Arrange
+            var loggerMock = new Mock<ILogger<TradesRepository>>();
             var context = _fixture.CreateContext();
             
-            var repository = new TradesRepository(context);
+            var repository = new TradesRepository(context, loggerMock.Object);
             var entity = new Entity
             {
                 Id = "EntityCreate",
@@ -50,9 +53,10 @@ namespace TradesWebAPIUnitTest
         public async Task UpdateEntity_ValidEntity_UpdatesEntitySuccessfully()
         {
             // Arrange
+            var loggerMock = new Mock<ILogger<TradesRepository>>();
             var context = _fixture.CreateContext();
 
-            var repository = new TradesRepository(context);
+            var repository = new TradesRepository(context, loggerMock.Object);
             var entity = new Entity
             {
                 Id = "EntityUpdate1",
@@ -105,9 +109,10 @@ namespace TradesWebAPIUnitTest
         public async Task DeleteEntity_ValidEntity_DeletesSuccessfully()
         {
             // Arrange
+            var loggerMock = new Mock<ILogger<TradesRepository>>();
             var context = _fixture.CreateContext();
 
-            var repository = new TradesRepository(context);
+            var repository = new TradesRepository(context, loggerMock.Object);
             var entity = new Entity
             {
                 Id = "EntityDelete",
@@ -140,9 +145,10 @@ namespace TradesWebAPIUnitTest
         public async Task GetEntityById_ValidEntity_Exists()
         {
             // Arrange
+            var loggerMock = new Mock<ILogger<TradesRepository>>();
             var context = _fixture.CreateContext();
 
-            var repository = new TradesRepository(context);
+            var repository = new TradesRepository(context, loggerMock.Object);
             var entity = new Entity
             {
                 Id = "EntityById",
@@ -172,9 +178,10 @@ namespace TradesWebAPIUnitTest
         public async Task GetAllEntities_ValidEntities_SearchByCountry()
         {
             // Arrange
+            var loggerMock = new Mock<ILogger<TradesRepository>>();
             var context = _fixture.CreateContext();
 
-            var repository = new TradesRepository(context);
+            var repository = new TradesRepository(context, loggerMock.Object);
             foreach (var index in Enumerable.Range(1, 10))
             {
                 var entity = new Entity
@@ -230,9 +237,10 @@ namespace TradesWebAPIUnitTest
         public async Task GetAllEntities_ValidEntities_SearchByDate()
         {
             // Arrange
+            var loggerMock = new Mock<ILogger<TradesRepository>>();
             var context = _fixture.CreateContext();
 
-            var repository = new TradesRepository(context);
+            var repository = new TradesRepository(context, loggerMock.Object);
             foreach (var index in Enumerable.Range(1, 5))
             {
                 var entity = new Entity
@@ -296,9 +304,10 @@ namespace TradesWebAPIUnitTest
         public async Task GetAllEntities_ValidEntities_SearchBySearchQuery()
         {
             // Arrange
+            var loggerMock = new Mock<ILogger<TradesRepository>>();
             var context = _fixture.CreateContext();
 
-            var repository = new TradesRepository(context);
+            var repository = new TradesRepository(context, loggerMock.Object);
             foreach (var index in Enumerable.Range(100, 10))
             {
                 var entity = new Entity

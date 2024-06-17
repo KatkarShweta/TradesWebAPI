@@ -14,10 +14,11 @@ namespace TradesWebAPIDataAccess
         private Func<TradesDbContext> context;
         private readonly AsyncRetryPolicy _retryPolicy;
 
-        public TradesRepository(TradesDbContext context)
+        public TradesRepository(TradesDbContext context, ILogger<TradesRepository> logger)
         {
             _context = context;
             _retryPolicy= getDefaultRetryPolicy();
+            _logger = logger;
         }
 
         public async Task CreateEntity(Entity entity)
