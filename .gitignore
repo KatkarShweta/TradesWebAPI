@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/TradesWebAPI/obj
+/TradesWebAPIBusinessLogic/obj
+/TradesWebAPIDataAccess/obj
+/TradesWebAPISharedLibrary/obj
+/TradesWebAPIUnitTest/obj

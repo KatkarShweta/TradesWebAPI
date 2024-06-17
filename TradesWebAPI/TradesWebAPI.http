@@ -1,0 +1,6 @@
+@TradesWebAPI_HostAddress = http://localhost:5209
+
+GET {{TradesWebAPI_HostAddress}}/Trades/
+Accept: application/json
+
+###
